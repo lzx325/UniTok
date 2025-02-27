@@ -10,7 +10,7 @@
 &dagger;project lead&emsp;&emsp;&emsp;*corresponding author
 
 <a href=""><img src='https://img.shields.io/badge/arXiv-UniTok-red' alt='Paper PDF'></a>
-<a href=""><img src='https://img.shields.io/badge/Project_Page-UniTok-green' alt='Project Page'></a>
+<a href="https://foundationvision.github.io/UniTok/"><img src='https://img.shields.io/badge/Project_Page-UniTok-green' alt='Project Page'></a>
 <a href="https://huggingface.co/FoundationVision/UniTok"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 
 [//]: # (<a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a>)
