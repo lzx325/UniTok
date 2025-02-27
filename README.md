@@ -341,9 +341,11 @@ If you find this project useful, please consider citing:
 
 ```bibtex
 @article{unitok,
-  title={UniTok: A Unified Tokenizer for Visual Generation and Understanding},
-  author={Ma, Chuofan and Wu, Junfeng and Jiang, Yi and Yang, Jihan and Yu, Xin and Yuan, Zehuan and Peng, Bingyue and Qi, Xiaojuan},
-  journal={},
-  year={2025}
+      title={UniTok: A Unified Tokenizer for Visual Generation and Understanding},
+      author={Ma, Chuofan and Jiang, Yi and Wu, Junfeng and Yang, Jihan and Yu, Xin and Yuan, Zehuan and Peng, Bingyue and Qi, Xiaojuan},
+      year={2025},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+    }
 }
 ```
