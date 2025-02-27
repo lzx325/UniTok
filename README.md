@@ -1,7 +1,7 @@
 <div align="center">
 <h1>UniTok: A Unified Tokenizer for Visual Generation and Understanding</h1>
 
-[**Chuofan Ma**](https://machuofan.github.io/)<sup>1,2</sup> · [**Junfeng Wu**](https://wjf5203.github.io/)<sup>2,3</sup> · [**Yi Jiang**](https://enjoyyi.github.io/)<sup>2&dagger;</sup> · [**Jihan Yang**](https://jihanyang.github.io/)<sup>1</sup>
+[**Chuofan Ma**](https://machuofan.github.io/)<sup>1,2</sup> · [**Yi Jiang**](https://enjoyyi.github.io/)<sup>2&dagger;</sup> · [**Junfeng Wu**](https://wjf5203.github.io/)<sup>2,3</sup> · [**Jihan Yang**](https://jihanyang.github.io/)<sup>1</sup>
 <br>
 [**Xin Yu**](https://xinyu-andy.github.io/)<sup>1</sup> · [**Zehuan Yuan**](https://shallowyuan.github.io/)<sup>2*</sup> · [**Bingyue Peng**](https://openreview.net/profile?id=~BINGYUE_PENG1)<sup>2</sup> · [**Xiaojuan Qi**](https://xjqi.github.io/)<sup>1&dagger;*</sup>
 
