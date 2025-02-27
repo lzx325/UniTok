@@ -27,7 +27,7 @@ def main(args):
     unitok.eval()
 
     preprocess = transforms.Compose([
-        transforms.Resize(unitok_cfg.img_size),
+        transforms.Resize(int(unitok_cfg.img_size * unitok_cfg.resize_ratio)),
         transforms.CenterCrop(unitok_cfg.img_size),
         transforms.ToTensor(), normalize_01_into_pm1,
     ])
