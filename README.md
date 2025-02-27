@@ -24,7 +24,7 @@ multimodal understanding models (e.g. LLaVA), and unified MLLMs (e.g. Chameleon 
 
 Built upon UniTok, we construct an MLLM capable of both multimodal generation and understanding,
 which sets a new state-of-the-art among unified autoregressive MLLMs. 
-The code and weights of our MLLM will be released soon.
+The weights of our MLLM will be released soon.
 
 ![teaser](assets/samples.png)
 
@@ -117,10 +117,10 @@ The code and weights of our MLLM will be released soon.
     </tbody>
 </table>
 
-&dagger; indicates the model uses pretrained CLIP weights for initialization.
-<br>**Note:** Although CLIP weight initialization yields better ImageNet zero-shot accuracy,
+
+&dagger; indicates the model uses pretrained CLIP weights for initialization. Although CLIP weight initialization boosts ImageNet zero-shot accuracy,
 we notice that random initialization leads to better downstream understanding performance.
-We thus release the model weights of randomly initialized UniTok.
+We thus release the model checkpoint of UniTok that is trained from scratch.
 
 [//]: # (**Visual Understanding Performance on VQA Benchmarks.**)
 
