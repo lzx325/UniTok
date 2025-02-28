@@ -9,7 +9,7 @@
 <br>
 &dagger;project lead&emsp;&emsp;&emsp;*corresponding author
 
-<a href=""><img src='https://img.shields.io/badge/arXiv-UniTok-red' alt='Paper PDF'></a>
+<a href="https://arxiv.org/abs/2502.20321"><img src='https://img.shields.io/badge/arXiv-UniTok-red' alt='Paper PDF'></a>
 <a href="https://foundationvision.github.io/UniTok/"><img src='https://img.shields.io/badge/Project_Page-UniTok-green' alt='Project Page'></a>
 <a href="https://huggingface.co/FoundationVision/UniTok"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 
@@ -341,11 +341,9 @@ If you find this project useful, please consider citing:
 
 ```bibtex
 @article{unitok,
-      title={UniTok: A Unified Tokenizer for Visual Generation and Understanding},
-      author={Ma, Chuofan and Jiang, Yi and Wu, Junfeng and Yang, Jihan and Yu, Xin and Yuan, Zehuan and Peng, Bingyue and Qi, Xiaojuan},
-      year={2025},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
-    }
+  title={UniTok: A Unified Tokenizer for Visual Generation and Understanding},
+  author={Ma, Chuofan and Wu, Junfeng and Jiang, Yi and Yang, Jihan and Yu, Xin and Yuan, Zehuan and Peng, Bingyue and Qi, Xiaojuan},
+  journal={arXiv preprint arXiv:2502.20321},
+  year={2025}
 }
 ```
