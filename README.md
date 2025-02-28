@@ -29,8 +29,7 @@ The weights of our MLLM will be released soon.
 ![teaser](assets/samples.png)
 
 ## News
-
-**2025-02-14:** Paper, code, and model weights for UniTok are all released.
+**2025-02-28:** Paper, code, model, and [project page](https://foundationvision.github.io/UniTok/) for UniTok are all released.
 
 
 ## Performance
