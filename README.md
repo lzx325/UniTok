@@ -11,7 +11,7 @@
 
 <a href="https://arxiv.org/abs/2502.20321"><img src='https://img.shields.io/badge/arXiv-UniTok-red' alt='Paper PDF'></a>
 <a href="https://foundationvision.github.io/UniTok/"><img src='https://img.shields.io/badge/Project_Page-UniTok-green' alt='Project Page'></a>
-<a href="https://huggingface.co/FoundationVision/UniTok"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
+<a href="https://huggingface.co/FoundationVision/unitok_tokenizer"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 
 [//]: # (<a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a>)
 </div>
@@ -263,7 +263,7 @@ We thus release the model checkpoint of UniTok that is trained from scratch.
 
 |    Model     | Res. | #Token |        Code Shape         | rFID |  Checkpoint  |
 |:------------:|:----:|:------:|:-------------------------:|:----:|:------------:|
-| UniTok-Large | 256  |  256   | 16 $\times$ 16 $\times$ 8 | 0.39 | [Download](https://huggingface.co/FoundationVision/UniTok/blob/main/unitok_tokenizer.pth) |
+| UniTok-Large | 256  |  256   | 16 $\times$ 16 $\times$ 8 | 0.39 | [Download](https://huggingface.co/FoundationVision/unitok_tokenizer/blob/main/unitok_tokenizer.pth) |
 
 
 ## Usage
@@ -282,10 +282,10 @@ pip install -r requirements.txt
 
 ### Inference
 
-Please download the [checkpoint](https://huggingface.co/FoundationVision/UniTok/blob/main/unitok_tokenizer.pth) and fill in the `ckpt_path`.
+Please download the [checkpoint](https://huggingface.co/FoundationVision/unitok_tokenizer) and fill in the `ckpt_path`.
 ```bash
 python inference.py \
-    --ckpt_path /path/to/unitok/checkpoint \
+    --ckpt_path /path/to/unitok_tokenizer.pth \
     --src_img /path/to/test_img --rec_img /path/to/rec_img
 ```
 
@@ -294,7 +294,7 @@ python inference.py \
 - We train UniTok on [DataComp-1B](https://github.com/mlfoundations/datacomp). 
 Please follow the [instructions](https://github.com/mlfoundations/datacomp?tab=readme-ov-file#downloading-datacomp-1b) to download and prepare the data.
 
-- Download the [models](https://huggingface.co/FoundationVision/UniTok/tree/main/external) used for loss calculation and put them in `./external`.
+- Download the [models](https://huggingface.co/FoundationVision/unitok_external) used for loss calculation and put them under `./external`.
 
 - Download the [ImageNet validation set](https://www.image-net.org/) for zero-shot accuracy evaluation.
 
