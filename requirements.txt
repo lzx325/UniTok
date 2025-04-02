@@ -5,6 +5,7 @@ gputil
 seaborn
 colorama
 braceexpand
+transformers
 torch_fidelity
 typed-argument-parser
 webdataset==0.2.86

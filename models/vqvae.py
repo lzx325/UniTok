@@ -9,7 +9,7 @@ from models.quant import VectorQuantizerM
 from models.vitamin import ViTaminDecoder, GeGluMlp
 
 
-class CausalAttention(nn.Module):
+class PlainAttention(nn.Module):
     def __init__(self, in_dim, out_dim, num_heads):
         super().__init__()
         if in_dim > out_dim:
@@ -38,7 +38,7 @@ class CausalAttention(nn.Module):
         qkv = F.linear(input=x, weight=self.qkv.weight, bias=torch.cat((self.q_bias, self.zero_k_bias, self.v_bias)))
         q, k, v = qkv.reshape(B, N, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4).unbind(0)
 
-        x = scaled_dot_product_attention(q, k, v, attn_mask=None, dropout_p=0., is_causal=True)
+        x = scaled_dot_product_attention(q, k, v)
 
         if self.in_dim > self.out_dim:
             x = torch.mean(x, dim=1)

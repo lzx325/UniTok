@@ -22,13 +22,19 @@ multimodal understanding models (e.g. LLaVA), and unified MLLMs (e.g. Chameleon 
 
 ![teaser](assets/teaser.png)
 
-Built upon UniTok, we construct an MLLM capable of both multimodal generation and understanding,
-which sets a new state-of-the-art among unified autoregressive MLLMs. 
-The weights of our MLLM will be released soon.
+Built upon UniTok, we construct an MLLM capable of both multimodal generation and understanding
+with the [Liquid](https://github.com/FoundationVision/Liquid/) framework,
+which sets a new state-of-the-art among unified autoregressive MLLMs.
 
 ![teaser](assets/samples.png)
 
 ## News
+**2025-04-02:** A new [checkpoint](https://huggingface.co/FoundationVision/unitok_tokenizer/tree/main) 
+of UniTok is released, which has better downstream task performance 
+by replacing the causal attention projection layer with full attention.
+The [model weights](https://huggingface.co/FoundationVision/unitok_mllm) 
+of our unified MLLM are also available on huggingface now!
+
 **2025-02-28:** Paper, code, model, and [project page](https://foundationvision.github.io/UniTok/) for UniTok are all released.
 
 
@@ -104,8 +110,8 @@ The weights of our MLLM will be released soon.
         <tr align="center">
             <td>UniTok</td>
             <td>256</td>
-            <td>0.39</td>
-            <td>70.5</td>
+            <td>0.41</td>
+            <td>70.8</td>
         </tr>
         <tr align="center">
             <td>UniTok &dagger;</td>
@@ -121,149 +127,14 @@ The weights of our MLLM will be released soon.
 we notice that random initialization leads to better downstream understanding performance.
 We thus release the model checkpoint of UniTok that is trained from scratch.
 
-[//]: # (**Visual Understanding Performance on VQA Benchmarks.**)
 
-[//]: # ()
-[//]: # (|   Method   |      LLM       |  Res.   |  VQAv2   |   GQA    | TextVQA  |   POPE   |   MME    |  MM-Vet  |)
-
-[//]: # (|:----------:|:--------------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|)
-
-[//]: # (|   Show-o   |  Phi-1.5-1.3B  |   256   |   59.3   |   48.7   |    -     |   73.8   |   948    |    -     |)
-
-[//]: # (|   Liquid   |    Gemma-7B    |   512   |   71.3   |   58.4   |   42.4   |   81.1   |   1119   |    -     |)
-
-[//]: # (|   VILA-U   |   Llama-2-7B   |   256   |   75.3   |   58.3   |   48.3   |   83.9   |   1336   |   27.7   |)
-
-[//]: # (| **UniTok** | **Llama-2-7B** | **256** | **76.8** | **61.1** | **51.6** | **83.2** | **1448** | **33.9** |)
-
-[//]: # ()
-[//]: # (**Visual Generation Performance on GenAI-Bench.**)
-
-[//]: # ()
-[//]: # (<table>)
-
-[//]: # (    <thead>)
-
-[//]: # (    <tr>)
-
-[//]: # (        <th rowspan="2">Method</th>)
-
-[//]: # (        <th rowspan="2">Type</th>)
-
-[//]: # (        <th rowspan="2">Count</th>)
-
-[//]: # (        <th rowspan="2">Differ</th>)
-
-[//]: # (        <th rowspan="2">Compare</th>)
-
-[//]: # (        <th colspan="2">Logical</th>)
-
-[//]: # (        <th rowspan="2">Overall</th>)
-
-[//]: # (    </tr>)
-
-[//]: # (    <tr>)
-
-[//]: # (        <th>Negate</th>)
-
-[//]: # (        <th>Universal</th>)
-
-[//]: # (    </tr>)
-
-[//]: # (    </thead>)
-
-[//]: # (    <tbody>)
-
-[//]: # (    <tr align="center">)
-
-[//]: # (        <td>Show-o</td>)
-
-[//]: # (        <td>Discrete Diff.</td>)
-
-[//]: # (        <td>0.70</td>)
-
-[//]: # (        <td>0.62</td>)
-
-[//]: # (        <td>0.71</td>)
-
-[//]: # (        <td>0.51</td>)
-
-[//]: # (        <td>0.65</td>)
-
-[//]: # (        <td>0.60</td>)
-
-[//]: # (    </tr>)
-
-[//]: # (    <tr align="center">)
-
-[//]: # (        <td>VILA-U</td>)
-
-[//]: # (        <td>Autoregressive</td>)
-
-[//]: # (        <td>0.70</td>)
-
-[//]: # (        <td>0.71</td>)
-
-[//]: # (        <td>0.74</td>)
-
-[//]: # (        <td>0.53</td>)
-
-[//]: # (        <td>0.66</td>)
-
-[//]: # (        <td>0.64</td>)
-
-[//]: # (    </tr>)
-
-[//]: # (    <tr align="center">)
-
-[//]: # (        <td>Liquid</td>)
-
-[//]: # (        <td>Autoregressive</td>)
-
-[//]: # (        <td>0.76</td>)
-
-[//]: # (        <td>0.73</td>)
-
-[//]: # (        <td>0.74</td>)
-
-[//]: # (        <td>0.46</td>)
-
-[//]: # (        <td>0.74</td>)
-
-[//]: # (        <td>0.65</td>)
-
-[//]: # (    </tr>)
-
-[//]: # (    <tr align="center">)
-
-[//]: # (        <th>UniTok</th>)
-
-[//]: # (        <th>Autoregressive</th>)
-
-[//]: # (        <th>0.76</th>)
-
-[//]: # (        <th>0.79</th>)
-
-[//]: # (        <th>0.74</th>)
-
-[//]: # (        <th>0.46</th>)
-
-[//]: # (        <th>0.73</th>)
-
-[//]: # (        <th>0.67</th>)
-
-[//]: # (    </tr>)
-
-[//]: # (    </tbody>)
-
-[//]: # (</table>)
 
 
 ## Model Weights
 
 |    Model     | Res. | #Token |        Code Shape         | rFID |  Checkpoint  |
 |:------------:|:----:|:------:|:-------------------------:|:----:|:------------:|
-| UniTok-Large | 256  |  256   | 16 $\times$ 16 $\times$ 8 | 0.39 | [Download](https://huggingface.co/FoundationVision/unitok_tokenizer/blob/main/unitok_tokenizer.pth) |
+| UniTok-Large | 256  |  256   | 16 $\times$ 16 $\times$ 8 | 0.41 | [Download](https://huggingface.co/FoundationVision/unitok_tokenizer/blob/main/unitok_tokenizer.pth) |
 
 
 ## Usage
@@ -312,18 +183,95 @@ bash launch.sh \
 ```
 **Note:** For more hyper-parameter configurations, please check `utils/config.py`.
 
+### Unified MLLM
+We show that UniTok significantly boosts the performance of unified MLLMs.
+
+Visual Understanding Performance on VQA Benchmarks.
+
+|   Method   |      LLM       |  Res.   |  VQAv2   |   GQA    | TextVQA  |   POPE   |   MME    |  MM-Vet  |
+|:----------:|:--------------:|:-------:|:--------:|:--------:|:--------:|:--------:|:--------:|:--------:|
+|   Show-o   |  Phi-1.5-1.3B  |   256   |   59.3   |   48.7   |    -     |   73.8   |   948    |    -     |
+|   Liquid   |    Gemma-7B    |   512   |   71.3   |   58.4   |   42.4   |   81.1   |   1119   |    -     |
+|   VILA-U   |   Llama-2-7B   |   256   |   75.3   |   58.3   |   48.3   |   83.9   |   1336   |   27.7   |
+| **UniTok** | **Llama-2-7B** | **256** | **76.8** | **61.1** | **51.6** | **83.2** | **1448** | **33.9** |
+
+Visual Generation Performance on GenAI-Bench.
+
+<table>
+    <thead>
+    <tr>
+        <th rowspan="2">Method</th>
+        <th rowspan="2">Type</th>
+        <th rowspan="2">Count</th>
+        <th rowspan="2">Differ</th>
+        <th rowspan="2">Compare</th>
+        <th colspan="2">Logical</th>
+        <th rowspan="2">Overall</th>
+    </tr>
+    <tr>
+        <th>Negate</th>
+        <th>Universal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center">
+        <td>Show-o</td>
+        <td>Discrete Diff.</td>
+        <td>0.70</td>
+        <td>0.62</td>
+        <td>0.71</td>
+        <td>0.51</td>
+        <td>0.65</td>
+        <td>0.60</td>
+    </tr>
+    <tr align="center">
+        <td>VILA-U</td>
+        <td>Autoregressive</td>
+        <td>0.70</td>
+        <td>0.71</td>
+        <td>0.74</td>
+        <td>0.53</td>
+        <td>0.66</td>
+        <td>0.64</td>
+    </tr>
+    <tr align="center">
+        <td>Liquid</td>
+        <td>Autoregressive</td>
+        <td>0.76</td>
+        <td>0.73</td>
+        <td>0.74</td>
+        <td>0.46</td>
+        <td>0.74</td>
+        <td>0.65</td>
+    </tr>
+    <tr align="center">
+        <th>UniTok</th>
+        <th>Autoregressive</th>
+        <th>0.76</th>
+        <th>0.79</th>
+        <th>0.74</th>
+        <th>0.46</th>
+        <th>0.73</th>
+        <th>0.67</th>
+    </tr>
+    </tbody>
+</table>
+
+Please refer to [EVAL.md](eval/EVAL.md) for more details.
+
 ### Evaluation
 
-We benchmark UniTok in terms of both understanding performance using the [LLaVA](https://github.com/haotian-liu/LLaVA) framework 
+We also benchmark UniTok in terms of both understanding performance using the [LLaVA](https://github.com/haotian-liu/LLaVA) framework 
 and generation performance using the [LLamaGen](https://github.com/FoundationVision/LlamaGen) framework.
 Please refer to [EVAL.md](eval/EVAL.md) for more details.
 
 
 
 ## Acknowledgement
-UniTok is built upon the awesome works 
+UniTok is built upon the awesome works
 [VAR](https://github.com/FoundationVision/VAR),
 [DataComp](https://github.com/mlfoundations/datacomp),
+[Liquid](https://github.com/FoundationVision/Liquid/),
 [LLaVA](https://github.com/haotian-liu/LLaVA/),
 [LlamaGen](https://github.com/FoundationVision/LlamaGen/),
 and [ViTamin](https://github.com/Beckschen/ViTamin).

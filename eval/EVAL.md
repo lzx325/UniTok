@@ -1,9 +1,39 @@
-## Understanding Tasks
+## Liquid
+
+### Setup
+Please download our [pretrained MLLM weights]() and install additional packages below.
+```bash
+cd eval/liquid
+```
+
+```bash
+pip install transformers==4.39.2 sentencepiece==0.1.99
+pip install deepspeed==0.12.6 accelerate==0.27.2
+pip install flash-attn --no-build-isolation
+pip install scikit-learn==1.2.2
+pip install open_clip_torch
+```
+
+
+
+### Understanding Evaluation
+
+Please follow [instructions](https://github.com/haotian-liu/LLaVA/blob/main/docs/Evaluation.md)
+in LLaVA to download VQA benchmarks used for evaluation. 
+Then configure the model and data paths in scripts under `liquid/scripts/understanding`.
+
+### Generation Evaluation
+
+Please follow [instructions](https://github.com/FoundationVision/Liquid/blob/main/evaluation/EVAL.md#text-to-image-evaluation)
+in Liquid to download GenAI-Bench and MJHQ benchmarks used for evaluation.
+Then configure the model and data paths in scripts under `liquid/scripts/generation`.
+
+## LLaVA
 
 ### Setup
 
 ```bash
-cd eval/understanding
+cd eval/llava
 ```
 
 Please follow the instructions in [LLaVA](https://github.com/haotian-liu/LLaVA?tab=readme-ov-file#pretrain-feature-alignment)
@@ -43,11 +73,11 @@ Please follow [instructions](https://github.com/haotian-liu/LLaVA/blob/main/docs
 in LLaVA to evaluate the model on various VQA benchmarks.
 
 
-## Generation Tasks
+## LlamaGen
 
 ### Setup
 ```bash
-cd eval/generation
+cd eval/llamagen
 ```
 
 Download [Imagenet](https://image-net.org/download.php) for class-conditional image generation training. 
