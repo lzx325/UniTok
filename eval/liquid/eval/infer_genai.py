@@ -139,12 +139,9 @@ def main(args):
 
         save_list = []
         if cfg_scale > 1:
-            model_inputs = tokenizer(text_inputs + uncondition_text_inputs, return_tensors="pt", padding=True).to(
-                'cuda')
-            total_batchsize = len(text_inputs + uncondition_text_inputs)
+            model_inputs = tokenizer(text_inputs + uncondition_text_inputs, return_tensors="pt", padding=True).to('cuda')
         else:
             model_inputs = tokenizer(text_inputs, return_tensors="pt", padding=True).to('cuda')
-            total_batchsize = len(text_inputs)
 
         model_kwargs = {'attention_mask': model_inputs.pop('attention_mask'), 'use_cache': True}
         input_ids = model_inputs.pop('input_ids')
@@ -159,10 +156,9 @@ def main(args):
             input_multi_ids = None
             for _ in range(256):
                 model_inputs = vqllm.prepare_inputs_for_generation(input_ids, **model_kwargs)
-                outputs = vqllm.T2I_forward_nocache(
+                outputs = vqllm.T2I_forward_withcache(
                     **model_inputs,
                     input_multi_ids=input_multi_ids,
-                    use_cache=None,
                     return_dict=True,
                     output_attentions=False,
                     output_hidden_states=False,
@@ -181,7 +177,7 @@ def main(args):
                     next_token_logits = vqllm.ar_head.linear_head(ar_next_embed[0])
                     if cfg_scale > 1:
                         cond_logits, uncond_logits = torch.split(next_token_logits, len(next_token_logits) // 2, dim=0)
-                        cfg_logits = uncond_logits + (cond_logits - uncond_logits) * guidance_scale
+                        cfg_logits = uncond_logits + (cond_logits - uncond_logits) * cfg_scale
                         half_next_token, _ = sample(cfg_logits, **sampling_kwargs)
                         # pred_tokens.append(half_next_token)
                         next_token = torch.cat([half_next_token, half_next_token])  # [bz,1]

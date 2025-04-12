@@ -9,7 +9,7 @@ from torchvision import transforms
 from torch.nn import functional as F
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-from minigemini.model import *
+from model import *
 
 sys.path.append('../..')
 from utils.config import Args
@@ -142,12 +142,9 @@ def main(args):
         save_list = []
         ori_batchsize = len(text_inputs)
         if cfg_scale > 1:
-            model_inputs = tokenizer(text_inputs + uncondition_text_inputs, return_tensors="pt", padding=True).to(
-                'cuda')
-            total_batchsize = len(text_inputs + uncondition_text_inputs)
+            model_inputs = tokenizer(text_inputs + uncondition_text_inputs, return_tensors="pt", padding=True).to('cuda')
         else:
             model_inputs = tokenizer(text_inputs, return_tensors="pt", padding=True).to('cuda')
-            total_batchsize = len(text_inputs)
 
         model_kwargs = {'attention_mask': model_inputs.pop('attention_mask'), 'use_cache': True}
         input_ids = model_inputs.pop('input_ids')
@@ -167,10 +164,9 @@ def main(args):
             input_multi_ids = None
             for _ in range(256):
                 model_inputs = vqllm.prepare_inputs_for_generation(input_ids, **model_kwargs)
-                outputs = vqllm.T2I_forward_nocache(
+                outputs = vqllm.T2I_forward_withcache(
                     **model_inputs,
                     input_multi_ids=input_multi_ids,
-                    use_cache=None,
                     return_dict=True,
                     output_attentions=False,
                     output_hidden_states=False,
