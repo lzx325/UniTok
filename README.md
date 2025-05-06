@@ -12,6 +12,7 @@
 <a href="https://arxiv.org/abs/2502.20321"><img src='https://img.shields.io/badge/arXiv-UniTok-red' alt='Paper PDF'></a>
 <a href="https://foundationvision.github.io/UniTok/"><img src='https://img.shields.io/badge/Project_Page-UniTok-green' alt='Project Page'></a>
 <a href="https://huggingface.co/FoundationVision/unitok_tokenizer"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
+<a href="https://huggingface.co/spaces/FoundationVision/UniTok"><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-yellow'></a>
 
 [//]: # (<a href='https://huggingface.co/datasets/depth-anything/DA-2K'><img src='https://img.shields.io/badge/Benchmark-DA--2K-yellow' alt='Benchmark'></a>)
 </div>
@@ -29,11 +30,13 @@ which sets a new state-of-the-art among unified autoregressive MLLMs.
 ![teaser](assets/samples.png)
 
 ## News
+**2025-04-15:** The [gradio demo](https://huggingface.co/spaces/FoundationVision/UniTok) of UniTok MLLM is available on Huggingface now!
+
 **2025-04-02:** A new [checkpoint](https://huggingface.co/FoundationVision/unitok_tokenizer/tree/main) 
 of UniTok is released, which has better downstream task performance 
 by replacing the causal attention projection layer with full attention.
 The [model weights](https://huggingface.co/FoundationVision/unitok_mllm) 
-of our unified MLLM are also available on huggingface now!
+of our unified MLLM are also available on Huggingface now!
 
 **2025-02-28:** Paper, code, model, and [project page](https://foundationvision.github.io/UniTok/) for UniTok are all released.
 
