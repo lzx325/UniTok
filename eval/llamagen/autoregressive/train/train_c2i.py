@@ -126,6 +126,7 @@ def main(args):
         token_dropout_p=args.token_dropout_p,
         num_codebooks=args.num_codebooks,
         n_output_layer=args.num_output_layer,
+        class_dropout_prob=args.class_dropout_prob
     ).to(device)
     logger.info(f"GPT Parameters: {sum(p.numel() for p in model.parameters()):,}")
 
@@ -348,5 +349,6 @@ if __name__ == "__main__":
     parser.add_argument("--num-codebooks", type=int, default=1)
     parser.add_argument("--num-output-layer", type=int, default=1)
     parser.add_argument("--schedule", type=str, default='linear')
+    parser.add_argument("--class_dropout_prob", type=float, default='0.1')
     args = parser.parse_args()
     main(args)

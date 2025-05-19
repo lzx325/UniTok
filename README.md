@@ -30,6 +30,10 @@ which sets a new state-of-the-art among unified autoregressive MLLMs.
 ![teaser](assets/samples.png)
 
 ## News
+**2025-05-19:** We find UniTok favors generation **without classifier-free-guidance** -- 
+it reduces gFID (without cfg) from 14.6 to 2.51 on ImageNet 256x256 using LlamaGen-XXL as the generator.
+Please refer to the updated [EVAL.md](eval/EVAL.md) for more details.
+
 **2025-04-15:** The [gradio demo](https://huggingface.co/spaces/FoundationVision/UniTok) of UniTok MLLM is available on Huggingface now!
 
 **2025-04-02:** A new [checkpoint](https://huggingface.co/FoundationVision/unitok_tokenizer/tree/main) 

@@ -92,7 +92,8 @@ def prefill(model, cond_idx: torch.Tensor, input_pos: torch.Tensor, cfg_scale: f
         if i == 0:
             logits = model.output.forward_test(next_token, input_pos=start_pos, mask=mask)
         else:
-            pred_idx = torch.cat([pred_idx, pred_idx])
+            if cfg_scale > 1.0:
+                pred_idx = torch.cat([pred_idx, pred_idx])
             logits = model.output.forward_test(next_token, idx=pred_idx, input_pos=start_pos, mask=mask)
         if cfg_scale > 1.0:
             cond_logits, uncond_logits = torch.split(logits, len(logits) // 2, dim=0)
@@ -126,7 +127,8 @@ def decode_one_token(model, x: torch.Tensor, input_pos: torch.Tensor, cfg_scale:
         if i == 0:
             logits = model.output.forward_test(next_token, input_pos=start_pos, mask=mask)
         else:
-            pred_idx = torch.cat([pred_idx, pred_idx])
+            if cfg_scale > 1.0:
+                pred_idx = torch.cat([pred_idx, pred_idx])
             logits = model.output.forward_test(next_token, idx=pred_idx, input_pos=start_pos, mask=mask)
         if cfg_scale > 1.0:
             cond_logits, uncond_logits = torch.split(logits, len(logits) // 2, dim=0)
