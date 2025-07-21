@@ -77,6 +77,9 @@ class MiniGeminiMetaModel:
                     new_k = k.replace('quantizer.', '')
                     quantizer_weights[new_k] = v
             attn_proj_weights = dict()
+            # Please note that the implementation of `post_quant_proj` here is different from that in UniTok.
+            # That is, `post_quant_proj` here is adapted to causal attention to align with next token prediction in AR.
+            # We just load the weights from UniTok for initialization.
             for k, v in unitok_ckpt.items():
                 if k.startswith('post_quant_proj'):
                     new_k = k.replace('post_quant_proj.', '')
