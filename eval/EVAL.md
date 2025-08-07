@@ -113,7 +113,7 @@ bash scripts/autoregressive/sample_c2i.sh \
     --gpt-ckpt /path/to/llamagen/ckpt \
     --gpt-model GPT-XXL --num-output-layer 4 \
     --num-codebooks 8 --codebook-size 32768 \
-    --image-size 256 --cfg-scale 1.0
+    --image-size 256 --cfg-scale 1.0 --temperature 0.9
 ```
 For FID evaluation, please follow [instructions](https://github.com/FoundationVision/LlamaGen/blob/main/evaluations/c2i/README.md)
 from LlamaGen to install required packages and download reference images.
