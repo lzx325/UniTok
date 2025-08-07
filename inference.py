@@ -40,9 +40,9 @@ def main(args):
 
     final_img = torch.cat((img, rec_img), dim=3)
     save_img(final_img, args.rec_img)
-
+    
     print('The image is saved to {}. The left one is the original image after resizing and cropping. The right one is the reconstructed image.'.format(args.rec_img))
-
+    import pdb;pdb.set_trace()
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

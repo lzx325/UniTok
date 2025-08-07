@@ -90,7 +90,8 @@ class ClipLoss(nn.Module):
         # calculated ground-truth and cache if enabled
         if self.prev_num_logits != num_logits or device not in self.labels:
             labels = torch.arange(num_logits, device=device, dtype=torch.long)
-            if self.world_size > 1 and self.local_loss:
+            # lizx: local loss means that each rank only computes loss for its own batch
+            if self.world_size > 1 and self.local_loss: 
                 labels = labels + num_logits * self.rank
             if self.cache_labels:
                 self.labels[device] = labels

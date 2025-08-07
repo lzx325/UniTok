@@ -88,6 +88,7 @@ class VectorQuantizer(nn.Module):
         features_hat = self.codebook(indices)
 
         # calc loss
+        # lizx: this is where the quantization loss is calculated
         vq_loss = F.mse_loss(features_hat.detach(), features).mul_(self.beta) + F.mse_loss(features_hat,
                                                                                            features.detach())
         features_hat = (features_hat.detach() - features.detach()).add_(features)
@@ -99,7 +100,7 @@ class VectorQuantizer(nn.Module):
         if handler is not None:
             handler.wait()
         prob_per_class_is_chosen /= prob_per_class_is_chosen.sum()
-        vocab_usage = (prob_per_class_is_chosen > 0.01 / self.vocab_size).float().mean().mul_(100)
+        vocab_usage = (prob_per_class_is_chosen > 0.01 / self.vocab_size).float().mean().mul_(100) # lizx: the percentage of frequently used vocabulary
         if self.vocab_usage_record_times == 0:
             self.vocab_usage.copy_(prob_per_class_is_chosen)
         elif self.vocab_usage_record_times < 100:
@@ -119,6 +120,7 @@ class VectorQuantizer(nn.Module):
         return indices.view(B, L)
 
 
+# lizx: multi-head vector quantizer
 class VectorQuantizerM(nn.Module):
     def __init__(
         self,

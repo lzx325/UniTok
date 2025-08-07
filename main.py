@@ -186,6 +186,8 @@ def main():
 
     # build models
     unitok = build_unitok(args)
+    
+    # lizx: the discriminator model is initialized from args.dino_path
     disc = build_discriminator(args)
 
     if args.use_clip_pretrain:
@@ -236,6 +238,7 @@ def main():
         world_size=dist.get_world_size(),
         use_horovod=False,
     )
+    # lizx: use the VGG model defined in args.lpips_path to evaluate LPIPS loss
     lpips_loss: LPIPS = LPIPS(args.lpips_path).to(args.device)
 
     # torch compile model
@@ -312,6 +315,7 @@ def main():
         }, ckpt_path)
     dist.barrier()
 
+    # lizx: evaluation of generation quality, using the Inception model `args.fid_feature_extractor`
     fid, isc = eval_fid(
         misc.unwrap_model(trainer.unitok),
         args.fid_eval_src,

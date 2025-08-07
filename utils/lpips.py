@@ -36,6 +36,7 @@ class LPIPS(nn.Module):
         inp_and_recs = self.net(inp_and_recs)   # inp_and_recs: List[Tensor], len(inp_and_recs) == 5
         diff = 0.
         for inp_and_rec, lin in zip(inp_and_recs, self.lins):
+            # lizx: compute the LPIPS loss for each layer
             diff += lin.model((normalize_tensor(inp_and_rec[:B]) - normalize_tensor(inp_and_rec[B:])).square_()).mean()
         return diff
 
